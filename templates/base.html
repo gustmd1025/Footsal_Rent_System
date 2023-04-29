@@ -1,0 +1,62 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+    <!-- sales CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <style>
+    .page-item.active .page-link {
+    color: black;
+    background-color: #D9E5FF;
+    border-color: #D9E5FF;
+    }
+    .page-link{
+    color: black;
+    }
+    .page-link:hover{
+    color: black;
+    background-color: #dedede;
+    }
+    .btn-primary {
+    background-color : #CFFF24;
+    border : #CFFF24;
+    color : black
+    }
+    .btn-primary:hover {
+    background-color: #D9E5FF;
+    border : #D9E5FF;
+    color : black
+    }
+
+
+
+    @import url('https://fonts.google.com/noto/specimen/Noto+Sans+KR?subset=korean&noto.script=Kore');
+    body{
+    font-family : 'Noto Sans Korean';
+    }
+
+    </style>
+
+    <title>풋살장 대여 관리 시스템</title>
+</head>
+<body>
+{% include "navbar.html" %}
+<!-- 기본 템플릿 안에 삽입될 내용 Start -->
+{% block content %}
+{% endblock %}
+<!-- 기본 템플릿 안에 삽입될 내용 End -->
+<! jQuery JS -->
+<script src="{% static 'jquery-3.6.3.min.js' %}"></script>
+<!-- Bootstrap JS -->
+<script src="{% static 'bootstrap.min.js' %}"></script>
+<!-- 자바스크립트 Start -->
+{% block script %}
+{% endblock %}
+<!-- 자바스크립트 End -->
+</body>
+</html>

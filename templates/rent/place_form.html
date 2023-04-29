@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h5 class="my-3 border-bottom pb-2" style="background-color: #CFFF24; text-align : center">풋살장 등록</h5>
+    <form method="post" class="post-form my-3" enctype="multipart/form-data">
+    {% csrf_token %}
+    <!-- 오류표시 Start -->
+    {% if form.errors %}
+        <div class="alert alert-danger" role="alert">
+        {% for field in form %}
+            {% if field.errors %}
+            <strong>{{ field.label }}</strong>
+            {{ field.errors }}
+            {% endif %}
+        {% endfor %}
+        </div>
+    {% endif %}
+    <!-- 오류표시 End -->
+    <div class="form-group">
+        <label for="pcode">풋살장 코드</label>
+        <input type="text" class="form-control" name="pcode" id="pcode"
+               value="{{ form.pcode.value|default_if_none:'' }}">
+    </div>
+    <div class="form-group">
+        <label for="pname">풋살장 이름</label>
+        <input type="text" class="form-control" name="pname" id="pname"
+               value="{{ form.pname.value|default_if_none:'' }}">
+    </div>
+    <div class="form-group">
+        <label for="location">지역</label>
+        <input type="text" class="form-control" name="location" id="location"
+               value="{{ form.location.value|default_if_none:'' }}">
+    </div>
+    <div class="form-group">
+        <label for="price">가격</label>
+        <input type="text" class="form-control" name="price" id="price"
+               value="{{ form.price.value|default_if_none:'' }}">
+    </div>
+        <div class="form-group">
+        <label for="side">실내/실외</label>
+        <input type="text" class="form-control" name="side" id="side"
+               value="{{ form.side.value|default_if_none:'' }}">
+    </div>
+        <div class="form-group">
+        <label for="ball">공대여</label>
+        <input type="text" class="form-control" name="ball" id="ball"
+               value="{{ form.ball.value|default_if_none:'' }}">
+    </div>
+        <div class="form-group">
+        <label for="vest">조끼대여</label>
+        <input type="text" class="form-control" name="vest" id="vest"
+               value="{{ form.vest.value|default_if_none:'' }}">
+    </div>
+    <div class="form-group">
+        <label for="imgfile" class="col-form-label">풋살장 사진</label>
+        <input class="form-control" type="file" name="imgfile" id="imgfile">
+    </div>
+    <button type="submit" class="btn btn-primary">등록하기</button>
+</form>
+</div>
+{% endblock %}
